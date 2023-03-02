@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\Lenovo\Desktop\Proga\C++\Проекты C++\ОАИП 2 СЕМ\ОАИП 2 СЕМ\main.cpp(140,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  ОАИП 2 СЕМ.vcxproj -> C:\Users\Lenovo\Desktop\Proga\C++\Проекты C++\ОАИП 2 СЕМ\x64\Debug\ОАИП 2 СЕМ.exe
