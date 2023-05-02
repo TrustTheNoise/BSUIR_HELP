@@ -15,22 +15,13 @@
 //	printf("Введите n: ");
 //	n = check();
 //	printf("Рекурсивная функция: %lf \nОбычная функция: %lf", RecY(n), Y(n));
-//	std::cout << "Рекурсивная функция: " << RecY(n) << std::endl << "Обычная функция: " << Y(n);
 //}
 //
 //int check() {
-//	int a{};
-//	while (!scanf_s("%d", &a)) {
-//		printf("Неправильный ввод\nВведите число:");
+//	int a = 0;
+//	while ((scanf_s("%d", &a), getchar()) != '\n') {
+//		printf("Неправильный ввод!\nВведите число:");
 //		rewind(stdin);
-//	}
-//	char temp;
-//	while ((temp = getchar()) != '\n') {
-//		if (temp > 57 || temp < 48) {
-//			printf("Неправильный ввод\nВведите число:");
-//			rewind(stdin);
-//			scanf_s("%d", &a);
-//		}
 //	}
 //	return a;
 //}
@@ -56,7 +47,7 @@
 //}
 
 //
-// лаба 2
+// лаба 3
 //
 
 //#include <iostream>
@@ -64,22 +55,138 @@
 //
 //struct Stack
 //{
-//	int num;
+//	double num;
 //	Stack* next;
 //} *begin;
 //
-//Stack* InStack(Stack* p) {
+//int check();
+//Stack* InStack(Stack*, bool);
+//void View(Stack*);
+//Stack* OutStack(Stack*, int*);
+//void Del_Elem(Stack**);
+//void Del_All(Stack**);
+//void Del_Num(Stack**);
+//void Del(Stack**);
+//void Sort(Stack*);
+//void Invdiv(Stack*);
+//
+//int main()
+//{
+//	system("chcp 1251>nul");
+//	srand(time(NULL));
+//	int choise{};
+//	bool proverka = true;
+//	int kol{};
+//	while (proverka)
+//	{
+//		system("cls");
+//		printf("На данный момент очередь: \n");
+//		View(begin);
+//		printf("\n1.Создать\n2.Добавить\n3.Сортировка\n4.Индивидуальное задание\n5.Удаление\n0.Выйти\nВыбирайте: ");
+//		switch (check())
+//		{
+//		case 1:
+//			system("cls");
+//			if (begin != nullptr) {
+//				printf("Очередь уже создана!!!\n");
+//				system("pause");
+//				continue;
+//			}
+//
+//			printf("Выберите как создать элемент в очереди:\n1.Рандомно\n2.Ввод с клавиатуры\n");
+//
+//			switch (check()) {
+//			case 1:
+//				begin = InStack(begin, true);
+//				break;
+//			case 2:
+//				begin = InStack(begin, false);
+//				break;
+//			default:
+//				continue;
+//			}
+//			break;
+//		case 2:
+//			system("cls");
+//			kol = 0;
+//			printf_s("Выберите сколько элементов хотите добавить: ");
+//			kol = check();
+//			printf("Выберите как создать элемент в очереди:\n1.Рандомно\n2.Ввод с клавиатуры\n");
+//			bool rand;
+//			switch (check()) {
+//			case 1:
+//				rand = true;
+//				break;
+//			case 2:
+//				rand = false;
+//				break;
+//			default:
+//				continue;
+//			}
+//
+//			for (int i = 0; i < kol; i++) {
+//				begin = InStack(begin, rand);
+//			}
+//			break;
+//		case 3:
+//			if (begin == nullptr) {
+//				printf("Очередь не создана!!!\n");
+//				system("pause");
+//				continue;
+//			}
+//			Sort(begin);
+//			break;
+//		case 4:
+//			if (begin == nullptr) {
+//				printf("Очередь не создана!!!\n");
+//				system("pause");
+//				continue;
+//			}
+//			Invdiv(begin);
+//			break;
+//		case 5:
+//			if (begin == nullptr) {
+//				printf("Очередь не создана!!!\n");
+//				system("pause");
+//				continue;
+//			}
+//			Del(&begin);
+//			break;
+//		case 0:
+//			proverka = false;
+//			break;
+//		default:
+//			printf("Такого варианта нет!!!1!!!");
+//		}
+//	}
+//}
+//
+//int check() {
+//	int a = 0;
+//	while ((scanf_s("%d", &a), getchar()) != '\n') {
+//		printf("Неправильный ввод!\nВведите число:");
+//		rewind(stdin);
+//	}
+//	return a;
+//}
+//
+//Stack* InStack(Stack* p, bool random) {
 //	Stack* t = new Stack;
-//	t->num = rand()-16000;
+//	if (random) {
+//		t->num = rand()%10;
+//	}else {
+//		printf("Введите элемент: ");
+//		t->num = check();
+//	}
 //	t->next = p;
 //	return t;
 //}
 //
 //void View(Stack* p) {
 //	Stack* t = p;
-//	while (t != NULL) 
+//	while (t != NULL)
 //	{
-//		printf("%d\n", t->num);
+//		printf("%.1lf\n", t->num);
 //		t = t->next;
 //	}
 //}
@@ -87,14 +194,35 @@
 //Stack* OutStack(Stack* p, int* out) {
 //	Stack* t = p;
 //	*out = p->num;
-//	p = p->next; 
+//	p = p->next;
 //	delete t;
-//	return p; 
+//	return p;
+//}
+//
+//void Del_Elem(Stack** p) {
+//	system("cls");
+//	printf("Введите какой элемент хотите удалить: ");
+//	int elem = check();
+//	bool least_one = false;
+//	Stack** pcur = p;
+//	Stack* temp;
+//	while (*pcur) {
+//		if ((*pcur)->num == elem) {
+//			temp = (*pcur);
+//			(*pcur) = (*pcur)->next;
+//			least_one = true;
+//			delete temp;
+//		}
+//		else pcur = &(*pcur)->next;
+//	}
+//	if (!least_one) {
+//		printf("Такого элемента нет в списке!!!");
+//	}
 //}
 //
 //void Del_All(Stack** p) {
 //	Stack* t;
-//	while(*p!=nullptr)
+//	while (*p != nullptr)
 //	{
 //		t = *p;
 //		*p = (*p)->next;
@@ -102,9 +230,50 @@
 //	}
 //}
 //
-//void Sort(Stack *p)
+//void Del_Num(Stack** p) {
+//	system("cls");
+//	printf("Введите номер элемент хотите удалить: ");
+//	int num = check();
+//	Stack** pcur = p;
+//	Stack* temp;
+//	int i = 1;
+//	for (i; (i < num) && ((*pcur) = nullptr); i++) {
+//		pcur = &(*pcur)->next;
+//	}
+//	if (i != num) {
+//		printf("Нет такого номера!!!((\n");
+//		return;
+//	}else {
+//		temp = (*pcur);
+//		(*pcur) = (*pcur)->next;
+//		delete temp;
+//	}
+//}
+//
+//void Del(Stack** p) {
+//	system("cls");
+//	printf("Введите что хотите удалить:\n1.Весь список\n2.Элемент\n3.Элемент по номеру\n");
+//	switch (check()) {
+//	case 1:
+//		Del_All(p);
+//		break;
+//	case 2:
+//		Del_Elem(p);
+//		break;
+//	case 3:
+//		Del_Num(p);
+//		break;
+//	default:
+//		printf("Нет такого варианта!!!");
+//	}
+//}
+//
+//void Sort(Stack* p)
 //{
-//	Stack* t=nullptr, *t1;
+//	if (!p->next) {
+//		return;
+//	}
+//	Stack* t = nullptr, * t1;
 //	do {
 //		for (t1 = p; t1->next != t; t1 = t1->next)
 //		{
@@ -120,11 +289,12 @@
 //	} while (p->next != t);
 //}
 //
-//void Invdiv(Stack *p)
+//void Invdiv(Stack* p)
 //{
-//	int sredArifm{}, kolOfNum{};
-//	Stack* t=p;
-//	while(p!=nullptr)
+//	double sredArifm{};
+//	int kolOfNum{};
+//	Stack* t = p;
+//	while (p != nullptr)
 //	{
 //		sredArifm += p->num;
 //		kolOfNum++;
@@ -133,50 +303,10 @@
 //	sredArifm = sredArifm / kolOfNum;
 //	t->num = sredArifm;
 //}
-//
-//int main()
-//{
-//	system("chcp 1251>nul");
-//	srand(time(NULL));
-//	int choise{};
-//	bool proverka = true;
-//	while (proverka)
-//	{
-//		system("cls");
-//		printf("1.Создать\t2.Просмотр\t3.Сортировка\t4.Индивидуальное задание\t5.Удалить стек\t6.Выйти\nВыбирайте:");
-//		scanf_s("%d", &choise);
-//		switch (choise)
-//		{
-//		case 1:
-//			begin = InStack(begin);
-//			break;
-//		case 2:
-//			View(begin);
-//			system("pause");
-//			break;
-//		case 3:
-//			Sort(begin);
-//			break;
-//		case 4:
-//			Invdiv(begin);
-//			View(begin);
-//			system("pause");
-//			break;
-//		case 5:
-//			Del_All(&begin);
-//			break;
-//		case 6:
-//			proverka = false;
-//			break;
-//		default:
-//			printf("Такого варианта нет!!!1!!!");
-//		}
-//	}
-//}
 
 
 //
-// лаба 3
+// лаба 4
 //
 
 //#include <iostream>
@@ -185,54 +315,84 @@
 //{
 //	int num;
 //	Spis* prev, * next;
-//} *begin, *end;
+//};
 //
 //int check();
-//void CreateSpis();
-//void InSpisBegin();
-//void InSpisEnd();
-//void View(bool);
+//void CreateSpis(Spis**, Spis**);
+//Spis* InSpisBegin(Spis*);
+//Spis* InSpisEnd(Spis*);
+//void View(Spis*, Spis*, bool);
+//void Sort(Spis*);
 //void Del_All(Spis**);
+//void Del_Elem(Spis**);
+//void Del(Spis**);
 //
 //int main()
 //{
 //	system("chcp 1251>nul");
 //	bool proverka = true;
+//	bool is_end = false;
+//	int kol=0;
+//	Spis *begin=nullptr, * end=nullptr;
 //	while (proverka)
 //	{
-//		printf("1.Создать\t2.Добавить\t3.Просмотреть\t4.Удалить\t0.Выйти\nВыбирайте: ");
+//		system("cls");
+//		printf("1.Создать\n2.Добавить\n3.Просмотреть\n4.Удалить\n0.Выйти\nВыбирайте: ");
 //		switch (check())
 //		{
 //		case 1:
-//			CreateSpis();
+//			system("cls");
+//			if (begin) {
+//				printf("Список уже создан!!\n");
+//				system("pause");
+//			}
+//			CreateSpis(&begin, &end);
 //			printf("Список создан!\n");
+//			system("pause");
 //			break;
 //		case 2:
+//			system("cls");
 //			printf("Куда добавить?\t1.В начало\t2.В конец\nВыбирайте:");
 //			switch (check())
 //			{
 //			case 1:
-//				InSpisBegin();
+//				is_end = false;
 //				break;
 //			case 2:
-//				InSpisEnd();
+//				is_end = true;
 //				break;
+//			default:
+//				continue;
 //			}
+//			printf("Сколько хотите добавить? ");
+//			kol = check();
+//			if (is_end){
+//				for (int i = 0; i < kol; i++) {
+//					end = InSpisEnd(end);
+//				}
+//			}else {
+//				for (int i = 0; i < kol; i++) {
+//					begin = InSpisBegin(begin);
+//				}
+//			}
+//			system("pause");
 //			break;
 //		case 3:
+//			system("cls");
 //			printf("Откуда смотреть?\t1.С начала\t2.С конца\nВыбирайте:");
 //			switch (check())
 //			{
 //			case 1:
-//				View(true);
+//				View(begin,end,true);
 //				break;
 //			case 2:
-//				View(false);
+//				View(begin,end,false);
 //				break;
 //			}
+//			system("pause");
 //			break;
 //		case 4:
-//			Del_All(&begin);
+//			Del(&begin);
 //			break;
 //		case 0:
 //			proverka = false;
@@ -242,32 +402,24 @@
 //}
 //
 //int check() {
-//	int a{};
-//	while (!scanf_s("%d", &a)) {
-//		printf("Неправильный ввод\nВведите число:");
+//	int a = 0;
+//	while ((scanf_s("%d", &a), getchar()) != '\n') {
+//		printf("Неправильный ввод!\nВведите число:");
 //		rewind(stdin);
-//	}
-//	char temp;
-//	while ((temp = getchar()) != '\n') {
-//		if (temp > 57 || temp < 48) {
-//			printf("Неправильный ввод\nВведите число:");
-//			rewind(stdin);
-//			scanf_s("%d", &a);
-//		}
 //	}
 //	return a;
 //}
 //
-//void CreateSpis()
+//void CreateSpis(Spis** begin, Spis** end)
 //{
 //	Spis* t = new Spis;
 //	printf("Введите элемент: ");
 //	t->num = check();
 //	t->next = t->prev = NULL;
-//	begin = end = t;
+//	(*begin) = (*end) = t;
 //}
 //
-//void InSpisBegin()
+//Spis* InSpisBegin(Spis* begin)
 //{
 //	Spis* t = new Spis;
 //	printf("Введите элемент: ");
@@ -276,9 +428,10 @@
 //	t->next = begin;
 //	begin->prev = t;
 //	begin = t;
+//	return begin;
 //}
 //
-//void InSpisEnd()
+//Spis* InSpisEnd(Spis* end)
 //{
 //	Spis* t = new Spis;
 //	printf("Введите элемент: ");
@@ -287,11 +440,33 @@
 //	t->prev = end;
 //	end->next = t;
 //	end = t; 
+//	return end;
 //}
 //
-//void View(bool vperde)
+//void Sort(Spis* p)
 //{
-//	if (vperde)
+//	if (!p->next) {
+//		return;
+//	}
+//	Spis* t = nullptr, * t1;
+//	do {
+//		for (t1 = p; t1->next != t; t1 = t1->next)
+//		{
+//			if (t1->num > t1->next->num)
+//			{
+//				int q;
+//				q = t1->next->num;
+//				t1->next->num = t1->num;
+//				t1->num = q;
+//			}
+//		}
+//		t = t1;
+//	} while (p->next != t);
+//}
+//
+//void View(Spis* begin, Spis* end, bool is_end)
+//{
+//	if (is_end)
 //	{
 //		Spis* t = begin;
 //		while (t != nullptr)
@@ -320,9 +495,64 @@
 //		delete t;
 //	}
 //}
+//
+//void Del_Elem(Spis** begin) {
+//	system("cls");
+//	printf("Введите какой элемент хотите удалить: ");
+//	int elem = check();
+//	bool least_one = false;
+//	Spis** pcur = begin;
+//	Spis* temp; 
+//
+//	if ((*pcur)->num == elem) {
+//		temp = (*pcur);
+//		(*pcur) = (*pcur)->next;
+//		(*pcur)->prev = nullptr;
+//		least_one = true;
+//		delete temp;
+//	}
+//
+//	while ((*pcur)->next) {
+//		if ((*pcur)->num == elem) {
+//			temp = (*pcur);
+//			(*pcur)->prev->next = (*pcur)->next;
+//			(*pcur)->prev = (*pcur)->prev->prev;
+//			least_one = true;
+//			delete temp;
+//		}
+//		else pcur = &(*pcur)->next;
+//	}
+//
+//	if ((*pcur)->num == elem) {
+//		temp = (*pcur);
+//		(*pcur) = (*pcur)->prev;
+//		(*pcur)->next = nullptr;
+//		least_one = true;
+//		delete temp;
+//	}
+//
+//	if (!least_one) {
+//		printf("Такого элемента нет в списке!!!");
+//	}
+//}
+//
+//void Del(Spis** begin) {
+//	system("cls");
+//	printf("Введите что хотите удалить:\n1.Весь список\n2.Элемент\n");
+//	switch (check()) {
+//	case 1:
+//		Del_All(begin);
+//		break;
+//	case 2:
+//		Del_Elem(begin);
+//		break;
+//	default:
+//		printf("Нет такого варианта!!!");
+//	}
+//}
 
 //
-// лаба 6
+// лаба 2
 //
 
 //#define _CRT_SECURE_NO_WARNINGS
@@ -519,6 +749,7 @@
 //						system("cls");
 //						zadanie();
 //						system("pause");
+//						break;
 //					case 0:
 //						proverka = false;
 //						flag = true;
@@ -591,7 +822,7 @@
 //	{
 //		printf_s("На данный момент существующие файлы:\n");
 //		system("dir *.dat /b");
-//		printf_s("Введите имя файла который хотите удалить: ");
+//		printf_s("Введите имя файла который хотите создать, или изменить: ");
 //		for (int j = 0; j < i; j++)
 //		{
 //			printf("%c", s[j]);
@@ -766,11 +997,11 @@
 //		{
 //			for (int l = 0; stud[i].FIO[l] && stud[j].FIO[l]; l++)
 //			{
-//				if (stud[i].FIO[m] > stud[j].FIO[m])
+//				if (stud[i].FIO[l] > stud[j].FIO[l])
 //				{
 //					m = j;
 //				}
-//				if (stud[i].FIO[m] == stud[j].FIO[m])
+//				if (stud[i].FIO[l] == stud[j].FIO[l])
 //				{
 //					continue;
 //				}
@@ -812,7 +1043,6 @@
 //		}
 //
 //
-//		//while (a[i].FIO[0] < x[0]) i++;
 //
 //		for (int l = 0; a[j].FIO[l] && x[l]; l++)
 //		{
@@ -827,7 +1057,6 @@
 //			break;
 //		}
 //
-//		//while (a[j].FIO[0] > x[0]) j--;
 //
 //		if (i <= j) {
 //			Students r = a[i];
@@ -1090,75 +1319,51 @@
 //}
 
 //
-//	лаба 7
+//	лаба 9
 //
 
 //#include <iostream>
 //#include <cmath>
 //
-//double Fx(double x)
-//{
-//	return x * x * x + 6 * x * x - 0.02 * exp(x) - 14;
+//using namespace std;
+//
+//double f(double x) {
+//    return x * x * x - 5 * x * x + 12;
 //}
 //
-//int check() {
-//	double a{};
-//	while (!scanf_s("%lf", &a)) {
-//		printf("Неправильный ввод\nВведите число:");
-//		rewind(stdin);
-//	}
-//	char temp;
-//	while ((temp = getchar()) != '\n') {
-//		if (temp > 57 || temp < 48) {
-//			printf("Неправильный ввод\nВведите число:");
-//			rewind(stdin);
-//			scanf_s("%lf", &a);
-//		}
-//	}
-//	return a;
-//}
-//double MP(int a, int b)
-//{
-//	double x0{ 100 }, h = (double)(a - b) / 3,  e{0.0001}, it{};
-//	double
-//		x1 = x0 - h,
-//		x2 = x0,
-//		x3 = x0 + h,
-//		y1 = Fx(x1),
-//		y2 = Fx(x2),
-//		y3 = Fx(x3);
-//	double zm{}, z1, z2, r, d, p, q, zm1, zm2;
-//	do
-//	{
-//		it++;
-//		z1 = x1 - x3;
-//		z2 = x2 - x3;
-//		r = y3;
-//		p = ((y1 - y3) * z2 - (y2 - y3) * z1) / (z1 * z2 * (z1 - z2));
-//		q = ((y1 - y3) * z2*z2 - (y2 - y3) * z1*z1) / (z1 * z2 * (z2 - z1));
-//		double D = sqrt(fabs(q * q - 4 * p * r));
-//		zm1 = (-1 * q + D) / (2*p);
-//		zm2 = (-1 * q - D) / (2 * p);
-//		zm = zm1 < zm2 ? zm1 : zm2;
-//		x1 = x2; x2 = x3;
-//		y1 = y2; y2 = y3;
-//		x3 = x3 + zm;
-//		y3 = Fx(x3);
-//	} while (fabs(zm)>e && it<100);
-//	return x3;
+//double vetein(double a, double b, double eps) {
+//    double x0 = a, x1 = b;
+//    double y0 = f(x0), y1 = f(x1);
+//    double z{};
+//    double de;
+//    int it = 0;
+//    do {
+//        it = it + 1;
+//        double d = x1 - x0;
+//        z = x1 - (y1 * d) / (y1 - y0);
+//        de = fabs(x1 - z);
+//        x0 = x1;
+//        x1 = z;
+//        y0 = y1;
+//        y1 = f(z);
+//    } while (de < eps || it>100);
+//    return z;
 //}
 //
-//int main()
-//{
-//	system("chcp 1251>nul");
-//	double a, b, m{ 3 };
-//	printf("a = ");
-//	a = check();
-//	printf("b = ");
-//	b = check();
-//	double x = a, y;
-//
-//	printf("Корень = %lf", MP(a, b));
+//int main() {
+//    double x0 = -2, x1 = 5;
+//    double y0 = f(x0), y1 = f(x1);
+//    int num_intervals = 10; 
+//    double dx = (5.0 + 2.0) / num_intervals;
+//    double x_left = x0, x_right = x0 + dx;
+//    while (x_right <= 5) {
+//        if (f(x_left) * f(x_right) <= 0) {
+//            double root = vetein(x_left, x_right, 1e-6);
+//            printf("Root: %f\n", root);
+//        }
+//        x_left = x_right;
+//        x_right += dx;
+//    }
 //}
 
 //
@@ -1224,107 +1429,572 @@
 // лаба с бинарным деревом
 //
 
-//#include <iostream>
+#include <iostream>
+
+struct Branch
+{
+	char FIO[30];
+	int numOfPass;
+	Branch* LeftBranch; 
+	Branch* RightBranch;
+	int height;
+};
+
+
+
+int check();
+void View_Tree(Branch*, int level = 1);
+void fixheight(Branch*);
+Branch* rotateleft(Branch*);
+Branch* rotateright(Branch*);
+int bfactor(Branch*);
+Branch* balance(Branch*);
+Branch* Add(char* aFIO, int aNumOfPass, Branch* aBranch, int height);
+void pr_obh(Branch*);
+void Find(int, Branch*);
+void obr_obh(Branch*);
+void Indiv(Branch* aBranch, char a, int& kol);
+void vozrast_obh(Branch*);
+Branch* del_elem(Branch*, int);
+Branch* delTree(Branch*);
+
+int main()
+{
+	system("chcp 1251>nul");
+	Branch* Root = 0;
+	bool proverka=true;
+	int vremPass;
+	char a;
+	char vremFIO[30];
+
+	int kol;
+	while (proverka)
+	{
+		system("cls");
+		printf("на данный момент дерево выглядит так :\n");
+		View_Tree(Root);
+		printf("\n");
+		printf("1.Добавить элемент массива\n2.Найти по номеру паспорта\n3.Вывести ифнормацию\n4.Балансировка\n5.Индивидуальное задание\n6.Удалить\n0.Выйти\n");
+		switch (check())
+		{
+		case 1:
+			system("cls");
+			printf("Фио: ");
+			rewind(stdin);
+			gets_s(vremFIO);
+			printf("Номер паспорта: ");
+			vremPass=check();
+			Root=Add(vremFIO,vremPass, Root, 1);
+			break;
+		case 2:
+			system("cls");
+			int KeyPass;
+			printf("Введите искомый номер паспорта: ");
+			scanf_s("%d", &KeyPass);
+			Find(KeyPass, Root);
+			system("pause");
+			break;
+		case 3:
+			system("cls");
+			printf("Как вывести информацию?\n1.Прямым образом\n2.Обратным образом\n3.По возрастанию Номера паспорта\n");
+			switch (check())
+			{
+			case 1:
+				pr_obh(Root);
+				system("pause");
+				break;
+			case 2:
+				obr_obh(Root);
+				system("pause");
+				break;
+			case 3:
+				vozrast_obh(Root);
+				system("pause");
+				break;
+			}
+			break;
+		case 4:
+			//balance(Root);
+			break;
+		case 5:
+			system("cls");
+			kol = 0;
+			printf("Введите с какого символа должна начинаться запись: ");
+			scanf_s("%c", &a);
+			Indiv(Root, a, kol);
+			printf("Количество: %d\n",  kol);
+			system("pause");
+			break;
+		case 6:
+			system("cls");
+			printf("Введите что хотите удалить:\n1.Всё дерево\nЭлемент по паспорту\n");
+			switch (check())
+			{
+			case 1:
+				Root = delTree(Root);
+				break;
+			case 2:
+				printf("Введите номер паспорта, кого хотите удалить: ");
+				vremPass = check();
+				Root = del_elem(Root, vremPass);
+			default:
+				break;
+			}
+			break;
+		case 0:
+			return 0;
+		}
+	}
+}
+
+int check() {
+	int a{};
+	while (!scanf_s("%d", &a)) {
+		printf("Неправильный ввод\nВведите число:");
+		rewind(stdin);
+	}
+	char temp;
+	while ((temp = getchar()) != '\n') {
+		if (temp > 57 || temp < 48) {
+			printf("Неправильный ввод\nВведите число:");
+			rewind(stdin);
+			scanf_s("%d", &a);
+		}
+	}
+	return a;
+}
+
+void View_Tree(Branch* root, int level) {
+	if (!root)return;
+	level += 2;
+	View_Tree(root->RightBranch, level);
+	for (int i = 2; i < level; ++i) printf(" ");
+	printf("%d\n",root->numOfPass);
+	View_Tree(root->LeftBranch, level);
+}
+
+int height(Branch* p) {
+	if (p) return p->height;
+	else return 0;
+}
+
+void fixheight(Branch* p)
+{
+	int hl = height(p->LeftBranch);
+	int hr = height(p->RightBranch);
+	if (hl > hr) {
+		p->height = hl + 1;
+	}
+	else {
+		p->height = hr + 1;
+	}
+}
+
+Branch* rotateleft(Branch* q) // левый поворот вокруг q
+{
+	Branch* p = q->RightBranch;
+	q->RightBranch = p->LeftBranch;
+	p->LeftBranch = q;
+	fixheight(q);
+	fixheight(p);
+	return p;
+}
+
+Branch* rotateright(Branch* p) // правый поворот вокруг p
+{
+	Branch* q = p->LeftBranch;
+	p->LeftBranch = q->RightBranch;
+	q->RightBranch = p;
+	fixheight(p);
+	fixheight(q);
+	return q;
+}
+
+int bfactor(Branch* p)
+{
+	return height(p->RightBranch) - height(p->LeftBranch);
+}
+
+Branch* balance(Branch* p) // балансировка узла p
+{
+	fixheight(p);
+	if (bfactor(p) == 2)
+	{
+		if (bfactor(p->RightBranch) < 0)
+			p->RightBranch = rotateright(p->RightBranch);
+		return rotateleft(p);
+	}
+	if (bfactor(p) == -2)
+	{
+		if (bfactor(p->LeftBranch) > 0)
+			p->LeftBranch = rotateleft(p->LeftBranch);
+		return rotateright(p);
+	}
+	return p; // балансировка не нужна
+}
+
+Branch* Add(char* aFIO, int aNumOfPass, Branch* aBranch, int height=1)
+{
+	if (!aBranch)
+	{
+		aBranch = new Branch;
+		int i;
+		for(i=0;aFIO[i];i++)
+		{
+			aBranch->FIO[i] = aFIO[i];
+		}
+		aBranch->FIO[i] = '\0';
+		aBranch->numOfPass = aNumOfPass;
+		aBranch->height = height;
+		aBranch->LeftBranch = NULL;
+		aBranch->RightBranch = NULL;
+		return aBranch;
+	}
+	if (aBranch->numOfPass == aNumOfPass) return aBranch;
+	if (aBranch->numOfPass > aNumOfPass)
+	{
+		aBranch->LeftBranch = Add(aFIO, aNumOfPass, aBranch->LeftBranch);
+	}
+	else
+	{ 
+		aBranch->RightBranch = Add(aFIO, aNumOfPass, aBranch->RightBranch);
+	}
+	return aBranch;//balance(aBranch);
+}
+
+
+void pr_obh(Branch* aBranch)
+{
+	if (aBranch == NULL)    return;   
+
+	printf("ФИО: %s | Номер паспорта: %d\n", aBranch->FIO, aBranch->numOfPass);
+	pr_obh(aBranch->LeftBranch); 
+	pr_obh(aBranch->RightBranch);
+}
+
+void obr_obh(Branch* aBranch)
+{
+	if(aBranch != NULL)
+	{
+		obr_obh(aBranch->LeftBranch);  
+		obr_obh(aBranch->RightBranch);
+		printf("Фио: %s | Номер паспорта: %d\n", aBranch->FIO, aBranch->numOfPass);
+	}
+}
+
+void vozrast_obh(Branch* aBranch)
+{
+	if (aBranch != NULL)
+	{
+		vozrast_obh(aBranch->LeftBranch);
+		printf("Фио: %s | Номер паспорта: %d\n", aBranch->FIO, aBranch->numOfPass);
+		vozrast_obh(aBranch->RightBranch);
+	}
+}
+
+void Find(int Key, Branch* aBranch)
+{
+	if (!aBranch)
+	{
+		return;
+	}
+	if(aBranch->numOfPass==Key)
+	{ 
+		printf("ФИО: %s | Номер паспорта: %d\n", aBranch->FIO, aBranch->numOfPass);
+		return;
+	}
+	if (Key < aBranch->numOfPass)
+		Find(Key, aBranch->LeftBranch);
+	else
+		Find(Key, aBranch->RightBranch);
+}
+
+void Indiv(Branch* aBranch, char a, int& kol)
+{
+	if (!aBranch)
+	{
+		return;
+	}
+	if (aBranch->FIO[0] == a)
+	{
+		kol++;
+		if(aBranch->LeftBranch!=NULL)
+		{
+			Indiv(aBranch->LeftBranch, a, kol);
+		}
+		if(aBranch->RightBranch!=NULL)
+		{
+			Indiv(aBranch->RightBranch, a, kol);
+		}
+		return;
+	}
+	Indiv(aBranch->LeftBranch, a, kol);
+	Indiv(aBranch->RightBranch, a, kol);
+}
+
+Branch* del_elem(Branch* aBranch, int key) 
+{
+	if (aBranch->LeftBranch == nullptr && aBranch->RightBranch == nullptr) 
+	{
+		aBranch = nullptr;
+		return aBranch;
+	}
+
+	Branch* del = aBranch, * prev = nullptr, * swap, * preSwap = nullptr, * save;
+	bool left_need = false;
+	
+	while (del != nullptr && del->numOfPass != key) 
+	{
+		if (del->numOfPass > key) { prev = del; left_need == true; del = del->LeftBranch; }
+		else { prev = del; left_need = false; del = del->RightBranch; }
+	}
+
+	if (del == NULL) {
+		printf("Такого элемента нет в дереве!!!");
+		return aBranch;
+	}
+
+	if (del->LeftBranch == nullptr) swap = del->RightBranch;
+	else if (del->RightBranch == nullptr) swap = del->LeftBranch;
+	
+	else {
+		swap = del->LeftBranch;
+		while (swap->RightBranch)
+		{
+			preSwap = swap;
+			swap = swap->RightBranch;
+		}
+		preSwap->RightBranch = swap->LeftBranch;
+		swap->LeftBranch = del->LeftBranch;
+		swap->RightBranch = del->RightBranch;
+	}
+	if (left_need)
+	{
+		prev->LeftBranch = swap;
+	}
+	else
+	{
+		prev->RightBranch = swap;
+	}
+	delete del;
+	return aBranch;
+}
+
+Branch* delTree(Branch* Tree)
+{
+	if (Tree)
+	{
+		delTree(Tree->LeftBranch);
+		delTree(Tree->RightBranch);
+		delete Tree;
+	}
+	return nullptr;
+}
+
 //
-//struct Branch
+// лаба обратная польская запись
+//
+
+//#include<iostream>
+//#include <conio.h>
+//
+//struct Stack
 //{
-//	char FIO[30];
-//	int numOfPass;
-//	Branch* LeftBranch; 
-//	Branch* RightBranch;
+//	char elem;
+//	Stack* next;
 //};
 //
+//int  Prior(char);
+//Stack* InStack(Stack*, char);
+//char OutStack(Stack**);
+//double Result(char*);
+//void zapis(char*, int);
+//double checkDouble();
+//int checkInt();
 //
-//using namespace std;
-//
-//int check();
-//void Add(char*, int, Branch*&);
-//void pr_obh(Branch*&);
-////Branch* del_elem(int, Branch*&);
-//void Find(int, Branch*&);
-//void obr_obh(Branch*&);
-//void Indiv(Branch*& aBranch, char a, int& kol);
-//void Add_Norm(Branch*&, int, char*);
-//void vozrast_obh(Branch*&);
-//
-//int main()
+//void main()
 //{
-//	system("chcp 1251>nul");
-//	Branch* Root = 0;
-//	bool proverka=true;
-//	int vremPass;
-//
-//	char vremFIO[30];
-//
-//	int kol;
-//	while (proverka)
+//	system("chcp 1251>0");
+//	Stack* elems = nullptr;
+//	char In[81] = "a-(b/c*(d+e))", Out[81] = " ";
+//	printf_s("Какие данные записать:\n1.Свои\n2.Шаблон\n");
+//	switch (checkInt())
 //	{
-//		system("cls");
-//		printf("1.Добавить элемент массива\n2.Найти по номеру паспорта\n3.Вывести ифнормацию\n4.Индивидуальное задание\n5.Удалить по ключу\n6.Выйти\n");
-//		switch (check())
+//	case 1:
+//		zapis(In, 81);
+//		break;
+//	case 2:
+//		break;
+//	}
+//	int out_len = 0;
+//	for (int i = 0; In[i]; i++)
+//	{
+//		switch (In[i])
 //		{
-//		case 1:
-//			system("cls");
-//			printf("Фио: ");
-//			rewind(stdin);
-//			gets_s(vremFIO);
-//			printf("Номер паспорта: ");
-//			vremPass=check();
-//			Add(vremFIO,vremPass, Root);
-//
-//			
+//		case '(':
+//			elems = InStack(elems, In[i]);
 //			break;
-//		case 2:
-//			system("cls");
-//			int KeyPass;
-//			printf("Введите искомый номер паспорта: ");
-//			scanf_s("%d", &KeyPass);
-//			Find(KeyPass, Root);
-//			system("pause");
-//			break;
-//		case 3:
-//			system("cls");
-//			printf("Как вывести информацию?\n1.Прямым образом\n2.Обратным образом\n3.По возрастанию Номера паспорта\n");
-//			switch (check())
+//		case ')':
+//			while (elems->elem != '(')
 //			{
-//			case 1:
-//				pr_obh(Root);
-//				system("pause");
-//				break;
-//			case 2:
-//				obr_obh(Root);
-//				system("pause");
-//				break;
-//			case 3:
-//				vozrast_obh(Root);
-//				system("pause");
-//				break;
+//				Out[out_len++] = OutStack(&elems);
 //			}
+//			OutStack(&elems);
 //			break;
-//		case 4:
-//			system("cls");
-//			char a;
-//			kol = 0;
-//			printf("Введите с какого символа должна начинаться запись: ");
-//			scanf_s("%c", &a);
-//			Indiv(Root, a, kol);
-//			printf("Количество: %d\n",  kol);
-//			system("pause");
+//		case '+': case '-': case '*': case '/':
+//			while (elems != nullptr && Prior(elems->elem) >= Prior(In[i]))
+//			{
+//				Out[out_len++] = OutStack(&elems);
+//			}
+//			elems = InStack(elems, In[i]);
 //			break;
-//		case 5:
-//			/*system("cls");
-//			printf("Введите номер паспорта, кого хотите удалить: ");
-//			vremPass = check();
-//			Root = del_elem(vremPass, Root);
-//			system("pause");
-//			break;*/
-//		case 6:
-//			return 0;
+//		}
+//		if (In[i] >= 'a' && In[i] <= 'z')
+//		{
+//			Out[out_len++] = In[i];
 //		}
 //	}
+//	while (elems != nullptr)
+//	{
+//		Out[out_len++] = OutStack(&elems);
+//	}
+//	Out[out_len] = '\0';
+//	printf("Polish = %s\n", Out);
+//	printf("Result = %.2lf", Result(Out));
 //}
 //
-//int check() {
+//Stack* InStack(Stack* st, char ch)
+//{
+//	Stack* temp = new Stack;
+//	temp->elem = ch;
+//	temp->next = st;
+//	return temp;
+//}
+//
+//char OutStack(Stack** st)
+//{
+//	char ch = (*st)->elem;
+//	Stack* to_del = *st;
+//	*st = (*st)->next;
+//	delete to_del;
+//	return ch;
+//}
+//
+//int  Prior(char ch)
+//{
+//	switch (ch)
+//	{
+//	case '(': return 0;
+//
+//	case '+': case '-': return 2;
+//
+//	case '*': case '/': return 3;
+//	}
+//	return 0;
+//}
+//
+//double Result(char* str)
+//{
+//	Stack* begin = NULL;
+//	char ss1, ss2, ssR = 'z' + 1;
+//	double op1, op2, res, mas[50];
+//	for (int i = 0, j = 0; str[i]; ++i) {
+//		if (str[i] >= 'a' && str[i] <= 'z')
+//		{
+//			printf("%c = ", str[i]);
+//			mas[int(str[i] - 'a')] = checkDouble();
+//		}
+//	}
+//
+//	for (int i = 0, j = 0; str[i] != '\0'; ++i) {
+//		if (str[i] >= 'a' && str[i] <= 'z')
+//			begin = InStack(begin, str[i]);
+//		else {
+//			op2 = mas[int(OutStack(&begin) - 'a')];
+//			op1 = mas[int(OutStack(&begin) - 'a')];
+//			switch (str[i])
+//			{
+//			case '+':
+//				res = op1 + op2;
+//				break;
+//			case '-':
+//				res = op1 - op2;
+//				break;
+//			case '*':
+//				res = op1 * op2;
+//				break;
+//			case '/':
+//				res = op1 / op2;
+//			}
+//			mas[int(ssR - 'a')] = res;
+//			begin = InStack(begin, ssR);
+//			ssR++;
+//		}
+//	}
+//	return res;
+//}
+//
+//void zapis(char* s, int size)
+//{
+//	int i{};
+//	char x{};
+//	while (i < size - 1)
+//	{
+//		printf_s("Введите математическую формулу которую нужно решить: ");
+//		for (int j = 0; j < i; j++)
+//		{
+//			printf("%c", s[j]);
+//		}
+//		x = _getch();
+//		system("cls");
+//		if (x == '\b' && i > 0)
+//		{
+//			i--;
+//			s[i] = '\0';
+//			continue;
+//		}
+//		if ((x >= 'a' && x <= 'z') || x == '+' || x == '/' || x == '*' || x == '-' || x == '(' || x == ')')
+//		{
+//			s[i] = x;
+//			i++;
+//		}
+//		if (x == '\r')
+//		{
+//			break;
+//		}
+//	}
+//	if (i == size - 1)
+//	{
+//		while (s[i - 1] == ' ')
+//		{
+//			i--;
+//		}
+//		printf("\nКоличество символов ограничено!");
+//		s[i] = '\0';
+//		rewind(stdin);
+//		return;
+//	}
+//	s[i] = '\0';
+//}
+//
+//double checkDouble() {
+//	double a{};
+//	while (!scanf_s("%lf", &a)) {
+//		printf("Неправильный ввод\nВведите число:");
+//		rewind(stdin);
+//	}
+//	char temp;
+//	while ((temp = getchar()) != '\n') {
+//		if (temp > 57 || temp < 48) {
+//			printf("Неправильный ввод\nВведите число:");
+//			rewind(stdin);
+//			scanf_s("%lf", &a);
+//		}
+//	}
+//	return a;
+//}
+//
+//int checkInt() {
 //	int a{};
 //	while (!scanf_s("%d", &a)) {
 //		printf("Неправильный ввод\nВведите число:");
@@ -1340,106 +2010,3 @@
 //	}
 //	return a;
 //}
-//
-//
-//
-//void Add(char* aFIO, int aNumOfPass, Branch*& aBranch)
-//{
-//	if (!aBranch)
-//	{
-//		aBranch = new Branch;
-//		int i;
-//		for(i=0;aFIO[i];i++)
-//		{
-//			aBranch->FIO[i] = aFIO[i];
-//		}
-//		aBranch->FIO[i] = '\0';
-//		aBranch->numOfPass = aNumOfPass;
-//		aBranch->LeftBranch = NULL;
-//		aBranch->RightBranch = NULL;
-//		return;
-//	}
-//	if (aBranch->numOfPass == aNumOfPass) return;
-//	if (aBranch->numOfPass > aNumOfPass)
-//	{
-//		Add(aFIO, aNumOfPass, aBranch->LeftBranch);
-//	}
-//	else
-//	{ 
-//		Add(aFIO, aNumOfPass, aBranch->RightBranch);
-//	}
-//}
-//
-//
-//void pr_obh(Branch*& aBranch)
-//{
-//	if (aBranch == NULL)    return;   
-//
-//	cout << "ФИО: " << aBranch->FIO << " | Номер паспорта: " << aBranch->numOfPass << endl; 
-//	pr_obh(aBranch->LeftBranch); 
-//	pr_obh(aBranch->RightBranch);
-//}
-//
-//void obr_obh(Branch*& aBranch)
-//{
-//	if(aBranch != NULL)
-//	{
-//		obr_obh(aBranch->LeftBranch);  
-//		obr_obh(aBranch->RightBranch);
-//		printf("Фио: %s | Номер паспорта: %d\n", aBranch->FIO, aBranch->numOfPass);
-//	}
-//}
-//
-//void vozrast_obh(Branch*& aBranch)
-//{
-//	if (aBranch != NULL)
-//	{
-//		vozrast_obh(aBranch->LeftBranch);
-//		printf("Фио: %s | Номер паспорта: %d\n", aBranch->FIO, aBranch->numOfPass);
-//		vozrast_obh(aBranch->RightBranch);
-//	}
-//}
-//
-//void Find(int Key, Branch*& aBranch)
-//{
-//	if (!aBranch)
-//	{
-//		return;
-//	}
-//	if(aBranch->numOfPass==Key)
-//	{
-//		printf("ФИО: %s | Номер паспорта: %d\n", aBranch->FIO, aBranch->numOfPass);
-//		return;
-//	}
-//	if (Key < aBranch->numOfPass)
-//		Find(Key, aBranch->LeftBranch);
-//	else
-//		Find(Key, aBranch->RightBranch);
-//}
-//
-//void Indiv(Branch*& aBranch, char a, int& kol)
-//{
-//	if (!aBranch)
-//	{
-//		return;
-//	}
-//	if (aBranch->FIO[0] == a)
-//	{
-//		kol++;
-//		if(aBranch->LeftBranch!=NULL)
-//		{
-//			Indiv(aBranch->LeftBranch, a, kol);
-//		}
-//		if(aBranch->RightBranch!=NULL)
-//		{
-//			Indiv(aBranch->RightBranch, a, kol);
-//		}
-//		return;
-//	}
-//	Indiv(aBranch->LeftBranch, a, kol);
-//	Indiv(aBranch->RightBranch, a, kol);
-//}
-
-//
-// лаба обратная польская запись
-//
