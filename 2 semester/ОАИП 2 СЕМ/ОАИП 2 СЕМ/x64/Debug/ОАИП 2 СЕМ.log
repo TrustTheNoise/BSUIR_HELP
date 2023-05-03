@@ -1,8 +1,5 @@
 ﻿  main.cpp
-C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\2 semester\ОАИП 2 СЕМ\ОАИП 2 СЕМ\main.cpp(1522,12): warning C4473: "scanf_s": передано недостаточно аргументов для строки формата
-C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\2 semester\ОАИП 2 СЕМ\ОАИП 2 СЕМ\main.cpp(1522,12): message : заполнители и их параметры ожидают переменное число аргументов в количестве 2, но было предоставлено 1
-C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\2 semester\ОАИП 2 СЕМ\ОАИП 2 СЕМ\main.cpp(1522,12): message : отсутствующий вариативный аргумент "2" требуется для строки форматирования "%c"
-C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\2 semester\ОАИП 2 СЕМ\ОАИП 2 СЕМ\main.cpp(1522,12): message : этот аргумент используется в качестве размера буфера
-C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\2 semester\ОАИП 2 СЕМ\ОАИП 2 СЕМ\main.cpp(1731,53): warning C4553: "==": результат выражения не используется; вы хотели использовать "="?
-C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\2 semester\ОАИП 2 СЕМ\ОАИП 2 СЕМ\main.cpp(1727,74): warning C4101: save: неиспользованная локальная переменная
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\2 semester\ОАИП 2 СЕМ\ОАИП 2 СЕМ\main.cpp(1823,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\2 semester\ОАИП 2 СЕМ\ОАИП 2 СЕМ\main.cpp(1908,7): warning C4101: ss1: неиспользованная локальная переменная
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\2 semester\ОАИП 2 СЕМ\ОАИП 2 СЕМ\main.cpp(1908,12): warning C4101: ss2: неиспользованная локальная переменная
   ОАИП 2 СЕМ.vcxproj -> C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\2 semester\ОАИП 2 СЕМ\x64\Debug\ОАИП 2 СЕМ.exe
