@@ -1810,7 +1810,7 @@
 //	Stack* next;
 //};
 //
-//int  Prior(char);
+//int Prior(char);
 //Stack* InStack(Stack*, char);
 //char OutStack(Stack**);
 //double Result(char*);
@@ -1959,7 +1959,7 @@
 //			s[i] = '\0';
 //			continue;
 //		}
-//		if ((x >= 'a' && x <= 'z') || x == '+' || x == '/' || x == '*' || x == '-' || x == '(' || x == ')' || (x >= '0' && x <= '9'))
+//		if ((x >= 'a' && x <= 'z') || x == '+' || x == '/' || x == '*' || x == '-' || x == '(' || x == ')')
 //		{
 //			s[i] = x;
 //			i++;
@@ -2031,7 +2031,7 @@
 //	int numOfFlight;
 //	char typeOfPlane[100];
 //	char key[100];
-//	char timeOfArrive[7];
+//	char timeOfArrive[6];
 //};
 //
 //struct Stack 
@@ -2040,10 +2040,12 @@
 //	Stack* next;
 //};
 //
-//void charcpy(char*, char*);
+//void zapisCif(char* s, int size);
 //bool charcmp(char*, char*);
 //void zapisFile(char*, int);
 //int check();
+//
+//
 //
 //class THash {
 //private:
@@ -2136,7 +2138,7 @@
 //			sum += *key;
 //		}
 //		i = hashFunction(temp);
-//		TInf tempSt[100]{};
+//		TInf tempSt[20]{};
 //
 //		Stack* p = H[i], * p1{};
 //		int numInf = 0;
@@ -2154,6 +2156,7 @@
 //					strcpy(tempInf.typeOfPlane, p->Inf.typeOfPlane);
 //					tempSt[numInf] = tempInf;
 //					numInf++;
+//
 //				}
 //				p1 = p;
 //				p = p->next;
@@ -2167,18 +2170,45 @@
 //		int size=0;
 //		for (size; tempSt[size].numOfFlight!=0; size++);
 //
-//		for (int i = 0; i<size; i++)
-//		{
-//			for (int j = 0; j<size-i-1; j++)
+//		i = 0;
+//		int j = size - 1;
+//		char* x = tempSt[size / 2].timeOfArrive;
+//		int minutesOfX = ((x[0] - 48) * 10 + (x[1] - 48)) * 60 + (x[3] - 48) * 10 + (x[4] - 48);
+//		while (i <= j) {
+//			for(int l=0;tempSt[i].timeOfArrive[l] && x[l];l++)
 //			{
-//				int minutesOfFirst = ((tempSt[j].timeOfArrive[0] - 48) * 10 + (tempSt[j].timeOfArrive[1] - 48)) * 60 + (tempSt[j].timeOfArrive[3] - 48) * 10 + (tempSt[j].timeOfArrive[4] - 48);
-//				int minutesOfSecond = ((tempSt[j+1].timeOfArrive[0] - 48) * 10 + (tempSt[j+1].timeOfArrive[1] - 48)) * 60 + (tempSt[j+1].timeOfArrive[3] - 48) * 10 + (tempSt[j+1].timeOfArrive[4] - 48);
-//				if (minutesOfSecond < minutesOfFirst) 
+//				int minutesOfI = ((tempSt[i].timeOfArrive[0] - 48) * 10 + (tempSt[i].timeOfArrive[1] - 48)) * 60 + (tempSt[i].timeOfArrive[3] - 48) * 10 + (tempSt[i].timeOfArrive[4] - 48);
+//				if (minutesOfI < minutesOfX)
 //				{
-//					TInf superTemp = tempSt[j];
-//					tempSt[j] = tempSt[j + 1];
-//					tempSt[j + 1] = superTemp;
+//					i++;
 //				}
+//				if (minutesOfI == minutesOfX)
+//				{
+//					continue;
+//				}
+//				break;
+//			}
+//		
+//			for (int l = 0; tempSt[j].timeOfArrive[l] && x[l]; l++)
+//			{
+//				int minutesOfJ = ((tempSt[j].timeOfArrive[0] - 48) * 10 + (tempSt[j].timeOfArrive[1] - 48)) * 60 + (tempSt[j].timeOfArrive[3] - 48) * 10 + (tempSt[j].timeOfArrive[4] - 48);
+//				if (minutesOfJ > minutesOfX)
+//				{
+//					j--;
+//				}
+//				if (minutesOfJ == minutesOfX)
+//				{
+//					continue;
+//				}
+//				break;
+//			}
+//		
+//			if (i <= j) {
+//				TInf r = tempSt[i];
+//				tempSt[i] = tempSt[j];
+//				tempSt[j] = r;
+//				i++;
+//				j--;
 //			}
 //		}
 //
@@ -2229,22 +2259,28 @@
 //	bool end = false;
 //	char key[100];
 //	while (!end) {
+//		system("cls");
 //		printf("\n1 - Создать\n2 - Добавить\n3 - Удалить элемент по ключу\n4 - Поиск в хеш-таблице по ключу\n5 - Индивидуальное задание\n6 - Удалить Хеш-таблицу\n0 - Выйти\n");
 //		printf("Выбирайте: ");
 //		switch (check()) 
 //		{
 //		case 1:
+//			system("cls");
 //			if (hash) 
 //			{
 //				printf("Хеш-таблица уже создана!!");
+//				system("pause");
 //				break;
 //			}
 //			printf("Введите кол-во записей в таблице: ");
 //			hash = new THash(check());
+//			system("pause");
 //			break;
 //		case 2:
+//			system("cls");
 //			if (!hash) {
 //				printf("Хеш - таблица не создана");
+//				system("pause");
 //				break;
 //			}
 //			TInf Inf1;
@@ -2256,44 +2292,63 @@
 //			printf("Пункт назначения: ");
 //			scanf_s("%s", &(Inf1.key), (unsigned int)sizeof(Inf1.key));
 //			printf("Время прибытия: ");
-//			scanf_s("%s", &(Inf1.timeOfArrive), (unsigned int)sizeof(Inf1.timeOfArrive));
+//			zapisCif(Inf1.timeOfArrive, sizeof(Inf1.timeOfArrive));
 //
+//			printf("Введите\nНомер рейса: %d\n", Inf1.numOfFlight);
+//			printf("Тип самолёта: %s\n", Inf1.typeOfPlane);
+//			printf("Пункт назначения: %s\n", Inf1.key);
+//			printf("Время прибытия: %s\n", Inf1.timeOfArrive);
 //			hash->Add(Inf1);
+//			system("pause");
 //			break;
 //		case 3:
+//			system("cls");
 //			if (!hash) {
 //				printf("Хеш - таблица не создана");
+//				system("pause");
 //				break;
 //			}
 //			printf("Запишите Пункт назначения, элемент с которым вы хотите удалить: ");
 //			scanf_s("%s", &key, (unsigned int)sizeof(key));
 //			hash->Del(key);
+//			system("pause");
 //			break;
 //		case 4:
+//			system("cls");
 //			if (!hash) {
 //				printf("Хеш - таблица не создана");
+//				system("pause");
 //				break;
 //			}
 //			printf("Запишите Пункт назначения элемент с которым вы хотите просмотреть: ");
 //			scanf_s("%s", &key, (unsigned int)sizeof(key));
 //			hash->Read(key);
+//			system("pause");
 //			break;
 //		case 5:
+//			system("cls");
 //			hash->Individual();
+//			system("pause");
 //			break;
 //		case 6:
+//			system("cls");
 //			if (!hash) {
 //				printf("Хеш - таблица не создана");
+//				system("pause");
 //				break;
 //			}
 //			delete hash;
 //			hash = nullptr;
+//			printf("Хеш таблица удалена");
+//			system("pause");
 //			break;
 //		case 0:
 //			end = true;
 //			break;
 //		default:
+//			system("cls");
 //			printf("Такова варианта нет!!1!1");
+//			system("pause");
 //		}
 //	}
 //
@@ -2344,6 +2399,70 @@
 //	s[i] = '\0';
 //}
 //
+//void zapisCif(char* s, int size)
+//{
+//	system("cls");
+//	int i{};
+//	char x{};
+//	while (true) {
+//		i = 0;
+//		while (i < size - 1)
+//		{
+//			printf_s("Время прибытия: ");
+//			for (int j = 0; j < i; j++)
+//			{
+//				printf("%c", s[j]);
+//			}
+//			if (i == 2) {
+//				x = ':';
+//				s[i] = x;
+//				i++;
+//				system("cls");
+//				continue;
+//			}
+//			x = _getch();
+//			system("cls");
+//			if (x == '\b' && i > 0)
+//			{
+//				i--;
+//				s[i] = '\0';
+//				continue;
+//			}
+//			if (x< '0' || x > '9' && x != ':')
+//			{
+//				continue;
+//			}
+//			s[i] = x;
+//			i++;
+//		}
+//
+//		if (((s[0] - 48) * 10 + (s[1] - 48)) > 24) {
+//			printf("Некорректно введено время\n");
+//			system("pause");
+//			continue;
+//		}
+//
+//		if (((s[3] - 48) * 10 + (s[4] - 48)) > 60) {
+//			printf("Некорректно введено время\n");
+//			system("pause");
+//			continue;
+//		}
+//		break;
+//	}
+//
+//	if (i == size - 1)
+//	{
+//		while (s[i - 1] == ' ')
+//		{
+//			i--;
+//		}
+//		s[i] = '\0';
+//		rewind(stdin);
+//		return;
+//	}
+//	s[i] = '\0';
+//}
+//
 //bool charcmp(char* first, char* second) {
 //	bool same = false;
 //	for (first, second; *first && *second; first += 1, second += 1) 
@@ -2371,4 +2490,3 @@
 //	}
 //	return a;
 //}
-

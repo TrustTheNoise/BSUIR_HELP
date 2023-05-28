@@ -1,2 +1,4 @@
 ﻿  main.cpp
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\2 semester\ОАИП 2 СЕМ\ОАИП 2 СЕМ\main.cpp(1416,19): warning C4101: x: неиспользованная локальная переменная
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\2 semester\ОАИП 2 СЕМ\ОАИП 2 СЕМ\main.cpp(1416,16): warning C4101: h: неиспользованная локальная переменная
   ОАИП 2 СЕМ.vcxproj -> C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\2 semester\ОАИП 2 СЕМ\x64\Debug\ОАИП 2 СЕМ.exe
