@@ -627,8 +627,7 @@
 //					printf("Ваш файл: %s", File_Zap);
 //					printf("\n1 - Создать\n2 - Просмотр\n3 - Изменить\n4 - Сортировка\n5 - Поиск в файле\n6 - Индивидуальное задание\n0 - Выйти\n");
 //					printf("Выбирайте: ");
-//					choise1 = check();
-//					switch (choise1)
+//					switch (check())
 //					{
 //					case 1:
 //						system("cls");
@@ -1960,7 +1959,7 @@
 //			s[i] = '\0';
 //			continue;
 //		}
-//		if ((x >= 'a' && x <= 'z') || x == '+' || x == '/' || x == '*' || x == '-' || x == '(' || x == ')')
+//		if ((x >= 'a' && x <= 'z') || x == '+' || x == '/' || x == '*' || x == '-' || x == '(' || x == ')' || (x >= '0' && x <= '9'))
 //		{
 //			s[i] = x;
 //			i++;
@@ -2017,3 +2016,359 @@
 //	}
 //	return a;
 //}
+
+//
+//	лаба с хешированием
+//
+
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <iostream>
+//#include <fstream>
+//#include <conio.h>
+//#include <cstring>
+//
+//struct TInf {
+//	int numOfFlight;
+//	char typeOfPlane[100];
+//	char key[100];
+//	char timeOfArrive[7];
+//};
+//
+//struct Stack 
+//{
+//	TInf Inf;
+//	Stack* next;
+//};
+//
+//void charcpy(char*, char*);
+//bool charcmp(char*, char*);
+//void zapisFile(char*, int);
+//int check();
+//
+//class THash {
+//private:
+//	int M;
+//	Stack** H;
+//public:
+//
+//	int hashFunction(char* key) {
+//		int sum = 0;
+//		for (key; *key != '\0' ; key++) {
+//			sum += *key;
+//		}
+//		return sum % M;
+//	}
+//
+//	THash(int k)
+//	{
+//		M = k;
+//		H = new Stack * [M];
+//		for (int i = 0; i < M; i++) H[i] = NULL;
+//	}
+//
+//	void Add(TInf Inf)
+//	{
+//		Stack* p = new Stack;
+//		int i = hashFunction(Inf.key);
+//		p->next = H[i];
+//		p->Inf = Inf;
+//		H[i] = p;
+//	}
+//	
+//	void Del(char* key)
+//	{
+//		int i = hashFunction(key);
+//		Stack* p = H[i], *prev = nullptr;
+//		if (p == nullptr) return;
+//		while (p) 
+//		{
+//			if (charcmp(p->Inf.key, key)) 
+//			{
+//				if (!prev) 
+//				{
+//					H[i] = p->next;
+//					delete p;
+//					return;
+//				}
+//				prev->next = p->next;
+//				delete p;
+//				return;
+//			}
+//			prev = p;
+//			p = p->next;
+//		}
+//		printf("С таким ключом нет элемента в Хеш-таблице");
+//	}
+//
+//	void Read(char* key)
+//	{
+//		int i = hashFunction(key);
+//		Stack* p = H[i], * p1{};
+//		bool bl = false;
+//		if (p != NULL)
+//		{
+//			do {
+//				if (charcmp(p->Inf.key, key)) 
+//				{
+//					bl = true;
+//					printf("%d || %s || %s || %s\n", p->Inf.numOfFlight, p->Inf.typeOfPlane, p->Inf.key, p->Inf.timeOfArrive);
+//				}
+//				p1 = p;
+//				p = p->next;
+//			} while (p != NULL);
+//		}
+//		if (!bl) 
+//		{
+//			printf("С таким ключом нет элемента в Хеш-таблице");
+//		}
+//	}
+//
+//	void Individual()
+//	{
+//		char* key = new char[100];
+//		int i;
+//		printf("Введите Пункт назначения информацио о рейсах которой хотите увидеть: ");
+//		char temp[100];
+//		scanf_s("%s", &temp, (unsigned int)sizeof(temp));
+//		strcpy(key, temp);
+//		int sum = 0;
+//		for (key; *key != '\0'; key++) {
+//			sum += *key;
+//		}
+//		i = hashFunction(temp);
+//		TInf tempSt[100]{};
+//
+//		Stack* p = H[i], * p1{};
+//		int numInf = 0;
+//		bool bl = false;
+//		if (p != NULL)
+//		{
+//			do {
+//				if (charcmp(p->Inf.key, temp))
+//				{
+//					bl = true;
+//					TInf tempInf{};
+//					strcpy(tempInf.key, p->Inf.key);
+//					tempInf.numOfFlight = p->Inf.numOfFlight;
+//					strcpy(tempInf.timeOfArrive, p->Inf.timeOfArrive);
+//					strcpy(tempInf.typeOfPlane, p->Inf.typeOfPlane);
+//					tempSt[numInf] = tempInf;
+//					numInf++;
+//				}
+//				p1 = p;
+//				p = p->next;
+//			} while (p != NULL);
+//		}
+//		if (!bl)
+//		{
+//			printf("С таким ключом нет элементов в Хеш-таблице");
+//			return;
+//		}
+//		int size=0;
+//		for (size; tempSt[size].numOfFlight!=0; size++);
+//
+//		for (int i = 0; i<size; i++)
+//		{
+//			for (int j = 0; j<size-i-1; j++)
+//			{
+//				int minutesOfFirst = ((tempSt[j].timeOfArrive[0] - 48) * 10 + (tempSt[j].timeOfArrive[1] - 48)) * 60 + (tempSt[j].timeOfArrive[3] - 48) * 10 + (tempSt[j].timeOfArrive[4] - 48);
+//				int minutesOfSecond = ((tempSt[j+1].timeOfArrive[0] - 48) * 10 + (tempSt[j+1].timeOfArrive[1] - 48)) * 60 + (tempSt[j+1].timeOfArrive[3] - 48) * 10 + (tempSt[j+1].timeOfArrive[4] - 48);
+//				if (minutesOfSecond < minutesOfFirst) 
+//				{
+//					TInf superTemp = tempSt[j];
+//					tempSt[j] = tempSt[j + 1];
+//					tempSt[j + 1] = superTemp;
+//				}
+//			}
+//		}
+//
+//		for (int i = 0; i < size; i++) 
+//		{
+//			printf("%d || %s || %s || %s\n", tempSt[i].numOfFlight, tempSt[i].typeOfPlane, tempSt[i].key, tempSt[i].timeOfArrive);
+//		}
+//	}
+//
+//	~THash()
+//	{
+//		char File_Name[100];
+//		int razm = 0;
+//		
+//		zapisFile(File_Name, sizeof(File_Name));
+//		while (File_Name[razm])
+//		{
+//			razm++;
+//		}
+//		File_Name[razm] = '.';
+//		File_Name[++razm] = 'd';
+//		File_Name[++razm] = 'a';
+//		File_Name[++razm] = 't';
+//		File_Name[razm + 1] = '\0';
+//
+//		Stack* p;
+//		FILE* Fl;
+//		if ((Fl = fopen(File_Name, "wb")) == NULL) {
+//			printf("File no created");
+//			return;
+//		}
+//		for (int i = 0; i < M; i++) {
+//			while (H[i] != NULL) {
+//				p = H[i];
+//				fwrite(&H[i], sizeof(Stack), 1, Fl);
+//				H[i] = H[i]->next;
+//				delete p;
+//			}
+//		}
+//		fclose(Fl);
+//		delete H;
+//	}
+//};
+//
+//int main() {
+//	system("chcp 1251>nul");
+//	THash* hash{};
+//	bool end = false;
+//	char key[100];
+//	while (!end) {
+//		printf("\n1 - Создать\n2 - Добавить\n3 - Удалить элемент по ключу\n4 - Поиск в хеш-таблице по ключу\n5 - Индивидуальное задание\n6 - Удалить Хеш-таблицу\n0 - Выйти\n");
+//		printf("Выбирайте: ");
+//		switch (check()) 
+//		{
+//		case 1:
+//			if (hash) 
+//			{
+//				printf("Хеш-таблица уже создана!!");
+//				break;
+//			}
+//			printf("Введите кол-во записей в таблице: ");
+//			hash = new THash(check());
+//			break;
+//		case 2:
+//			if (!hash) {
+//				printf("Хеш - таблица не создана");
+//				break;
+//			}
+//			TInf Inf1;
+//			
+//			printf("Введите\nНомер рейса: ");
+//			Inf1.numOfFlight = check();
+//			printf("Тип самолёта: ");
+//			scanf_s("%s", &(Inf1.typeOfPlane), (unsigned int)sizeof(Inf1.typeOfPlane));
+//			printf("Пункт назначения: ");
+//			scanf_s("%s", &(Inf1.key), (unsigned int)sizeof(Inf1.key));
+//			printf("Время прибытия: ");
+//			scanf_s("%s", &(Inf1.timeOfArrive), (unsigned int)sizeof(Inf1.timeOfArrive));
+//
+//			hash->Add(Inf1);
+//			break;
+//		case 3:
+//			if (!hash) {
+//				printf("Хеш - таблица не создана");
+//				break;
+//			}
+//			printf("Запишите Пункт назначения, элемент с которым вы хотите удалить: ");
+//			scanf_s("%s", &key, (unsigned int)sizeof(key));
+//			hash->Del(key);
+//			break;
+//		case 4:
+//			if (!hash) {
+//				printf("Хеш - таблица не создана");
+//				break;
+//			}
+//			printf("Запишите Пункт назначения элемент с которым вы хотите просмотреть: ");
+//			scanf_s("%s", &key, (unsigned int)sizeof(key));
+//			hash->Read(key);
+//			break;
+//		case 5:
+//			hash->Individual();
+//			break;
+//		case 6:
+//			if (!hash) {
+//				printf("Хеш - таблица не создана");
+//				break;
+//			}
+//			delete hash;
+//			hash = nullptr;
+//			break;
+//		case 0:
+//			end = true;
+//			break;
+//		default:
+//			printf("Такова варианта нет!!1!1");
+//		}
+//	}
+//
+//	return 0;
+//}
+//
+//void zapisFile(char* s, int size)
+//{
+//	int i{};
+//	char x{};
+//	while (i < size - 1)
+//	{
+//		printf_s("Введите имя файла куда хотите создать Хеш-таблицу: ");
+//		for (int j = 0; j < i; j++)
+//		{
+//			printf("%c", s[j]);
+//		}
+//		x = _getch();
+//		system("cls");
+//		if (x == '\b' && i > 0)
+//		{
+//			i--;
+//			s[i] = '\0';
+//			continue;
+//		}
+//		if (x == '/' || x == '\\' || x == ':' || x == '*' || x == '?' || x == '>' || x == '<' || x == '|')
+//		{
+//			continue;
+//		}
+//		if (x == '\r')
+//		{
+//			break;
+//		}
+//		s[i] = x;
+//		i++;
+//	}
+//	if (i == size - 1)
+//	{
+//		while (s[i - 1] == ' ')
+//		{
+//			i--;
+//		}
+//		printf("\nКоличество символов ограничено!");
+//		s[i] = '\0';
+//		rewind(stdin);
+//		return;
+//	}
+//	s[i] = '\0';
+//}
+//
+//bool charcmp(char* first, char* second) {
+//	bool same = false;
+//	for (first, second; *first && *second; first += 1, second += 1) 
+//	{
+//		if (*first == *second) 
+//		{
+//			same = true;
+//		}
+//		else {
+//			same = false;
+//		}
+//	}
+//	if (*first || *second) 
+//	{
+//		same = false;
+//	}
+//	return same;
+//}
+//
+//int check() {
+//	int a = 0;
+//	while ((scanf_s("%d", &a), getchar()) != '\n') {
+//		printf("Неправильный ввод!\nВведите число:");
+//		rewind(stdin);
+//	}
+//	return a;
+//}
+
