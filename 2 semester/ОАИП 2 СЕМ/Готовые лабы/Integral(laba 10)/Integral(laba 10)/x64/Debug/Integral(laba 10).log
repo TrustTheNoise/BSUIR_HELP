@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\ОАИП\Integral(laba 10)\Integral(laba 10)\main.cpp(68,19): warning C4101: x: неиспользованная локальная переменная
+C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\ОАИП\Integral(laba 10)\Integral(laba 10)\main.cpp(68,16): warning C4101: h: неиспользованная локальная переменная
+  Integral(laba 10).vcxproj -> C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\ОАИП\Integral(laba 10)\x64\Debug\Integral(laba 10).exe

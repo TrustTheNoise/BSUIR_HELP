@@ -1,0 +1,5 @@
+﻿  main.cpp
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __cdecl DynamicArray<int>::viewArray(void)" (?viewArray@?$DynamicArray@H@@QEAAXXZ) в функции "void __cdecl interface<int>(class DynamicArray<int>)" (??$interface@H@@YAXV?$DynamicArray@H@@@Z).
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __cdecl DynamicArray<int>::delElem(void)" (?delElem@?$DynamicArray@H@@QEAAXXZ) в функции "void __cdecl interface<int>(class DynamicArray<int>)" (??$interface@H@@YAXV?$DynamicArray@H@@@Z).
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __cdecl DynamicArray<int>::performOperation(void)" (?performOperation@?$DynamicArray@H@@QEAAXXZ) в функции "void __cdecl interface<int>(class DynamicArray<int>)" (??$interface@H@@YAXV?$DynamicArray@H@@@Z).
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\3 semester\OOP\fourth\x64\Debug\fourth.exe : fatal error LNK1120: неразрешенных внешних элементов: 3

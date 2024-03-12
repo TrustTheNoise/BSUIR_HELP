@@ -1,0 +1,5 @@
+﻿  MyForm.cpp
+C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\ОАИП\Aproksim\Aproksim\MyForm.cpp(151,10): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\ОАИП\Aproksim\Aproksim\MyForm.cpp(142,9): warning C4101: mass_y_t: неиспользованная локальная переменная
+  MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  Aproksim.vcxproj -> C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\ОАИП\Aproksim\x64\Debug\Aproksim.exe

@@ -1,0 +1,8 @@
+﻿  DynamicArray.cpp
+  main.cpp
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\3 semester\OOP\empty\DynamicArray.h(40,22): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\3 semester\OOP\empty\DynamicArray.h(39,10): message : во время компиляции функции-члена класс шаблон "void DynamicArray<int>::performOperation(void)"
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\3 semester\OOP\empty\main.cpp(42,24): message : см. первую ссылку на "DynamicArray<int>::performOperation" в "interface"
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\3 semester\OOP\empty\main.cpp(18,23): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "DynamicArray<int>"
+  Создание кода...
+  empty.vcxproj -> C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\3 semester\OOP\empty\x64\Debug\empty.exe

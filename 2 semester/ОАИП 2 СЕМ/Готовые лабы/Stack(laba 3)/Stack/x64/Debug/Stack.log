@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\ОАИП\Stack(laba 3)\Stack\main.cpp(26,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\ОАИП\Stack(laba 3)\Stack\main.cpp(237,17): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+  Stack.vcxproj -> C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\ОАИП\Stack(laba 3)\x64\Debug\Stack.exe

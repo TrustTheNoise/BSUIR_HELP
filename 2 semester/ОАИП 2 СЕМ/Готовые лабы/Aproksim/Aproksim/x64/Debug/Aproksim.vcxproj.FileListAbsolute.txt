@@ -1,0 +1,8 @@
+C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\Aproksim\Aproksim\x64\Debug\Aproksim.vcxproj.AssemblyReference.cache
+C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\Aproksim\Aproksim\x64\Debug\Aproksim.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\Aproksim\Aproksim\x64\Debug\Aproksim.MyForm.resources
+C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\Aproksim\Aproksim\x64\Debug\Aproksim.vcxproj.GenerateResource.cache
+C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\ОАИП\Aproksim\Aproksim\x64\Debug\Aproksim.vcxproj.AssemblyReference.cache
+C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\ОАИП\Aproksim\Aproksim\x64\Debug\Aproksim.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\ОАИП\Aproksim\Aproksim\x64\Debug\Aproksim.MyForm.resources
+C:\Users\kypis\OneDrive\Рабочий стол\Proga\C++\ОАИП\Aproksim\Aproksim\x64\Debug\Aproksim.vcxproj.GenerateResource.cache
