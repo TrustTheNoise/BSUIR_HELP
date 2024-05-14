@@ -1,0 +1,24 @@
+C:\Users\kostya89\Desktop\kursachik\task3\task3\bin\Debug\task3.exe.config
+C:\Users\kostya89\Desktop\kursachik\task3\task3\bin\Debug\task3.exe
+C:\Users\kostya89\Desktop\kursachik\task3\task3\bin\Debug\task3.pdb
+C:\Users\kostya89\Desktop\kursachik\task3\task3\obj\Debug\task3.csproj.AssemblyReference.cache
+C:\Users\kostya89\Desktop\kursachik\task3\task3\obj\Debug\task3.Properties.Resources.resources
+C:\Users\kostya89\Desktop\kursachik\task3\task3\obj\Debug\task3.csproj.GenerateResource.cache
+C:\Users\kostya89\Desktop\kursachik\task3\task3\obj\Debug\task3.csproj.CoreCompileInputs.cache
+C:\Users\kostya89\Desktop\kursachik\task3\task3\obj\Debug\task3.exe
+C:\Users\kostya89\Desktop\kursachik\task3\task3\obj\Debug\task3.pdb
+C:\Users\kostya89\Desktop\kursachik\task3\task3\obj\Debug\task3.Forms.ReceivedSum.resources
+C:\Users\kostya89\Desktop\kursachik\task3\task3\obj\Debug\task3.Forms.App.resources
+C:\Users\kostya89\Desktop\kursachik\task3\task3\obj\Debug\task3.Forms.InputForm.resources
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4_semester\OOP\крсч\task3\task3\bin\Debug\task3.exe.config
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4_semester\OOP\крсч\task3\task3\bin\Debug\task3.exe
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4_semester\OOP\крсч\task3\task3\bin\Debug\task3.pdb
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4_semester\OOP\крсч\task3\task3\obj\Debug\task3.csproj.AssemblyReference.cache
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4_semester\OOP\крсч\task3\task3\obj\Debug\task3.csproj.SuggestedBindingRedirects.cache
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4_semester\OOP\крсч\task3\task3\obj\Debug\task3.Forms.App.resources
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4_semester\OOP\крсч\task3\task3\obj\Debug\task3.Forms.InputForm.resources
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4_semester\OOP\крсч\task3\task3\obj\Debug\task3.Properties.Resources.resources
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4_semester\OOP\крсч\task3\task3\obj\Debug\task3.csproj.GenerateResource.cache
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4_semester\OOP\крсч\task3\task3\obj\Debug\task3.csproj.CoreCompileInputs.cache
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4_semester\OOP\крсч\task3\task3\obj\Debug\task3.exe
+C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4_semester\OOP\крсч\task3\task3\obj\Debug\task3.pdb

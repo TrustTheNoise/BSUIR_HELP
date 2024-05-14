@@ -1,4 +1,0 @@
-﻿  main.cpp
-C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4 semester\OOP\lab 1\main.cpp(54,24): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4 semester\OOP\lab 1\main.cpp(64,11): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-  lab 1.vcxproj -> C:\Users\kypis\OneDrive\Рабочий стол\Уник\FOR_FIRST_COURSE\4 semester\OOP\lab 1\x64\Debug\lab 1.exe
